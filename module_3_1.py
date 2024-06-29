@@ -6,30 +6,28 @@ def count_calls():
 
 def string_info(string):
     count_calls()
-    n = (len(string))
-    m = string.upper()
-    od = string.lower()
-    print(n, m, od)
+    len_ = (len(string))
+    up = string.upper()
+    lo = string.lower()
+    return (len_, up, lo)
 
 def is_contains(string, list_to_search):
     count_calls()
-    compar = False
 
     for i in list_to_search:
-        if i.lower() == string.lower():
-            compar = True
-        else:
-           continue
-    print(compar)
+        if isinstance(i, str):
+            if i.lower() == string.lower():
+                return True
+    return False
 
-string_info('Zarigueya')
+print(string_info('Zarigueya'))
 
-string_info('extraVagante')
+print(string_info('extraVagante'))
 
-string_info("железныЙ")
+print(string_info("железныЙ"))
 
-is_contains('pEro', ['f', 'pErO', 'no', 'como'])
-is_contains('Zarigueya', ['я', 'ты', 'он'])
+print(is_contains('pEro', [2, 'pErO', 'no', 'como']))
+print (is_contains('Zarigueya', ['я', 'ты', 'он']))
 
 print(calls)
 
