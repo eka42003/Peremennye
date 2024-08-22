@@ -19,8 +19,14 @@ def calculate_structure_sum(structure):
             count_num += calculate_structure_sum(item)
     elif isinstance(structure, dict):
         for key, value in structure.items():
-            count_str += calculate_structure_sum(key)
-            count_num += calculate_structure_sum(value)
+             if isinstance(key,str):
+                count_str += calculate_structure_sum(key)
+            elif isinstance(key, int):
+                count_num += calculate_structure_sum(key)
+            if isinstance(value, str):
+                count_str += calculate_structure_sum(value)
+            elif isinstance(value, int):
+                count_num += calculate_structure_sum(value)
     return count_num + count_str
 
 print(calculate_structure_sum(data_structure ))
